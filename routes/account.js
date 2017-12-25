@@ -133,10 +133,10 @@ router.post('/:action', (req, res) => {
 
       return;
     })
-    .catch(err => {
+    .catch(err => {      
       res.json({
         confirmation: 'fail',
-        message: err
+        message: err.message
       });
     });
   }

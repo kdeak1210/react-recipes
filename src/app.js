@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import store from './stores';
 import { Home, CurrentUser, ProfileInfo } from './components/layout';
+import { CreateRecipe } from './components/containers';
 
 class App extends Component {
   render(){
@@ -12,7 +13,8 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/currentuser' component={CurrentUser} />
+            <Route exact path='/currentuser' component={CurrentUser} />
+            <Route path='/currentuser/create' component={CreateRecipe} />
             <Route path='/profile/:username' component={ProfileInfo} />
           </Switch>
         </Router>

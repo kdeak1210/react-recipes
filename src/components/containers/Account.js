@@ -14,13 +14,14 @@ class Account extends Component {
   }
 
   register(credentials){
-    console.log('Register: ' + JSON.stringify(credentials));
     this.props.register(credentials);
   }
 
   login(credentials){
-    console.log('Login: ' + JSON.stringify(credentials));
-    this.props.login(credentials);
+    this.props.login(credentials)
+    .catch(err => {
+      alert(err);
+    });
   }
 
   logout(){

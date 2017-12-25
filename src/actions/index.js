@@ -11,7 +11,7 @@ const getRequest = (path, params, actionType) => {
     .then((response) => {
       //console.log('GET: ' + JSON.stringify(response))
       const payload = response.results || response.result || response.user
-
+      
       dispatch({
         type: actionType,
         payload: payload,
@@ -19,6 +19,7 @@ const getRequest = (path, params, actionType) => {
       })
     })
     .catch((err) => {
+      
       throw err // propagate the error down the chain
     })
 }
@@ -29,6 +30,10 @@ const postRequest = (path, params, actionType) => {
     APIManager.post(path, params)
     .then((response) => {
       //console.log('POST: ' + JSON.stringify(response))
+      if (response.confirmation != 'success'){
+        throw new Error(response.message)
+      }
+      
       const payload = response.results || response.result || response.user
       
       dispatch({
@@ -43,6 +48,12 @@ const postRequest = (path, params, actionType) => {
 }
 
 export default {
+
+  createRecipe: (params) => {
+    return (dispatch) => {
+      return dispatch(postRequest('/api/recipe', params, constants.RECIPE_CREATED))
+    }
+  },
   
   fetchRecipes: (params) => {
     return (dispatch) => {

@@ -7,14 +7,11 @@ import actions from '../../actions';
 class Feed extends Component {
 
   componentDidMount(){
-    console.log('CDM - FEED');
+    //console.log('CDM - FEED');
     this.props.fetchRecipes(null);
-    console.log(this.props.recipe.all);
-    
   }
 
   render(){
-
     const recipes = this.props.recipe.all || [];
 
     return(
@@ -25,9 +22,9 @@ class Feed extends Component {
           return (
             <li key={recipe.id}>
               <Preview
-                author='placeholder'
-                title={recipe.title} 
-                image={recipe.image} 
+                author={recipe.author.username || 'unknown'}
+                title={recipe.title}
+                image={recipe.image}
                 description={recipe.description} 
                 />
             </li>

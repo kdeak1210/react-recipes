@@ -1,38 +1,19 @@
 import React, { Component } from 'react';
 import { RecipeForm } from '../presentation';
 import { connect } from 'react-redux';
+import actions from '../../actions';
 
 class CreateRecipe extends Component {
-  constructor(){
-    super();
-    this.state = {
-      recipe: {
-        author: {
-          id: '',
-          username: ''
-        },
-        title: '',
-        image: '',
-        description: '',
-        steps: []
-      }
-    }
-  }
-
-  updateRecipe(recipe){
-    console.log(recipe);
-  }
 
   submitRecipe(recipe){
-    console.log(`Before adding author: ${JSON.stringify(recipe)}`)
-    
+    //console.log(`Before adding author: ${JSON.stringify(recipe)}`)  
     const author = {
       id: this.props.user.id,
       username: this.props.user.username
-    }
-
+    };
     recipe['author'] = author;
-    console.log(`After adding author: ${JSON.stringify(recipe)}`);
+
+    this.props.createRecipe(recipe);
   }
   
   render(){
@@ -50,10 +31,10 @@ const stateToProps = (state) => {
   }
 }
 
-// const dispatchToProps = (dispatch) => {
-//   return {
-//     createRecipe: (params) => dispatch(actions.createRecipe(params))
-//   }
-// }
+const dispatchToProps = (dispatch) => {
+  return {
+    createRecipe: (params) => dispatch(actions.createRecipe(params))
+  }
+}
 
-export default connect(stateToProps)(CreateRecipe)
+export default connect(stateToProps, dispatchToProps)(CreateRecipe)

@@ -13,6 +13,13 @@ export default (state = initialState, action) => {
       updated['all'] = action.payload
       return updated;
 
+    case constants.RECIPE_CREATED:
+      console.log('RECIPE_CREATED: ' + JSON.stringify(action.payload));
+      let list = Object.assign([], updated['all']);
+      list.unshift(action.payload);
+      updated['all'] = list;
+      return updated;
+
     default:
       return updated;
   }

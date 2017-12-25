@@ -29,10 +29,10 @@ const renderSteps = ({ fields, meta: { error, submitFailed } }) => (
         >&times;</button>
         <h4>Step #{index + 1}</h4>
         <Field
-          name={`${step}.description`}
+          name={`${step}.directions`}
           type="text"
           component={renderField}
-          label="Description"
+          label="Directions"
         />
         <Field
           name={`${step}.duration`}

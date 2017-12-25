@@ -16,6 +16,7 @@ RecipeSchema.methods.summary = function(){
     title: this.title,
     image: this.image,
     description: this.description,
+    steps: this.steps,
     timestamp: this.timestamp,
     id: this._id.toString()
   };
