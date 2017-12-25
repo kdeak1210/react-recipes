@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AddStep, RecipeForm } from '../presentation';
+import { RecipeForm } from '../presentation';
 import { connect } from 'react-redux';
 
 class CreateRecipe extends Component {
@@ -19,31 +19,26 @@ class CreateRecipe extends Component {
     }
   }
 
-  updateRecipe(field, event){
-    //console.log(`Field: ${field} - ${event.target.value}`);
-    let updated = Object.assign({}, this.state.recipe);
-    updated[field] = event.target.value;
-    this.setState({
-      recipe: updated
-    });
+  updateRecipe(recipe){
+    console.log(recipe);
   }
 
-  addStep(step){
-    console.log(step);
-  }
+  submitRecipe(recipe){
+    console.log(`Before adding author: ${JSON.stringify(recipe)}`)
+    
+    const author = {
+      id: this.props.user.id,
+      username: this.props.user.username
+    }
 
-  submitRecipe(){
-    console.log(this.state.recipe)
-    //this.props.createRecipe(this.state.recipe)
+    recipe['author'] = author;
+    console.log(`After adding author: ${JSON.stringify(recipe)}`);
   }
   
   render(){
     return(
       <div>
-        <RecipeForm onSubmit={this.updateRecipe.bind(this)} />
-        <br /><br /><br />
-        <AddStep onSubmit={this.addStep.bind(this)}/>
-        
+        <RecipeForm onSubmit={this.submitRecipe.bind(this)} />
       </div>
     )
   }
@@ -51,7 +46,7 @@ class CreateRecipe extends Component {
 
 const stateToProps = (state) => {
   return {
-    user: state.account
+    user: state.account.user
   }
 }
 
@@ -62,20 +57,3 @@ const stateToProps = (state) => {
 // }
 
 export default connect(stateToProps)(CreateRecipe)
-// RECIPES
-// {
-//   author: {
-//     id: '',
-//     username: ''
-//   },
-//   title: '',
-//   image: '',
-//   description: '',
-//   steps: [
-//     {
-//       description: '',
-//       duration: '',
-//       image: ''
-//     }
-//   ]
-// }
