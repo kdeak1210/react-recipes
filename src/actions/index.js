@@ -44,6 +44,12 @@ const postRequest = (path, params, actionType) => {
 
 export default {
   
+  fetchRecipes: (params) => {
+    return (dispatch) => {
+      return dispatch(getRequest('/api/recipe', params, constants.RECIPES_RECEIVED))
+    }
+  },
+  
   fetchProfiles: () => {
     return (dispatch) => {
       return dispatch(getRequest('/api/profile', null, constants.PROFILES_RECEIVED));

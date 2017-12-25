@@ -15,7 +15,7 @@ class Account extends Component {
 
   register(credentials){
     console.log('Register: ' + JSON.stringify(credentials));
-    this.props.register(credentials);    
+    this.props.register(credentials);
   }
 
   login(credentials){

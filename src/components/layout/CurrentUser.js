@@ -6,7 +6,12 @@ class CurrentUser extends Component {
   render(){
     return(
       <div className="container">
-        <UpdateProfile />
+        <div className="col-md-5">
+          <UpdateProfile />      
+        </div>
+        <div className="col-md-7">
+          MY RECIPES
+        </div>
       </div>
     )
   }

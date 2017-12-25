@@ -1,7 +1,9 @@
 const ProfileController = require('./ProfileController');
+const RecipeController = require('./RecipeController');
 
 module.exports = {
 
-  profile: ProfileController
+  profile: ProfileController,
+  recipe: RecipeController
 
 }

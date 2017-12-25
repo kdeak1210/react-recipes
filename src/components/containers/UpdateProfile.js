@@ -46,7 +46,7 @@ class UpdateProfile extends Component {
     const currentUser = this.props.user || {};
 
     return(
-      <div className="col-md-offset-4 col-md-4">
+      <div>
         <h2>Welcome {currentUser.username}</h2>
         <p>Feel free to update your information below</p>
         <input 

@@ -8,21 +8,28 @@ class Feed extends Component {
 
   componentDidMount(){
     console.log('CDM - FEED');
-    this.props.fetchProfiles();
+    this.props.fetchRecipes(null);
+    console.log(this.props.recipe.all);
+    
   }
 
   render(){
 
-    const profiles = this.props.profile.all || [];
+    const recipes = this.props.recipe.all || [];
 
     return(
       <div>
-        <h4>FEED (list of profiles)</h4>
+        <h4>FEED (list of recent recipes)</h4>
         <ul style={{listStyle: 'none', paddingLeft: '0px'}}>
-        { profiles.map((user, i) => {
+        { recipes.map((recipe, i) => {
           return (
-            <li key={user.id}>
-              <Preview username={user.username} email={user.email} timestamp={user.timestamp} />
+            <li key={recipe.id}>
+              <Preview
+                author='placeholder'
+                title={recipe.title} 
+                image={recipe.image} 
+                description={recipe.description} 
+                />
             </li>
           )
         })}
@@ -34,13 +41,13 @@ class Feed extends Component {
 
 const stateToProps = (state) => {
   return {
-    profile: state.profile
+    recipe: state.recipe
   }
 }
 
 const dispatchToProps = (dispatch) => {
   return {
-    fetchProfiles: () => dispatch(actions.fetchProfiles())
+    fetchRecipes: (params) => dispatch(actions.fetchRecipes(params))
   }
 }
 
