@@ -4,15 +4,15 @@
 const mongoose = require('mongoose');
 
 const StepSchema = mongoose.Schema({
-  description: {type: String, default: ''},
-  duration: {type: Number, default: 0},
+  directions: {type: String, default: ''},
+  duration: {type: String, default: 0},
   image: {type: String, default: ''},
   timestamp: {type: Date, default: Date.now()}
 });
 
 StepSchema.methods.summary = function(){
   const summary = {
-    description: this.description,    
+    directions: this.directions,    
     image: this.image,
     timestamp: this.timestamp,
     id: this._id.toString()

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { UpdateProfile } from '../containers';
+import { UpdateProfile, CreateRecipe } from '../containers';
 
 class CurrentUser extends Component {
 
@@ -10,7 +10,7 @@ class CurrentUser extends Component {
           <UpdateProfile />      
         </div>
         <div className="col-md-7">
-          MY RECIPES
+          <CreateRecipe />
         </div>
       </div>
     )
