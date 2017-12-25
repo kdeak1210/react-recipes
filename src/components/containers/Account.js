@@ -14,14 +14,13 @@ class Account extends Component {
   }
 
   register(credentials){
-    this.props.register(credentials);
+    this.props.register(credentials)
+    .catch(err => alert(err));
   }
 
   login(credentials){
     this.props.login(credentials)
-    .catch(err => {
-      alert(err);
-    });
+    .catch(err => alert(err));
   }
 
   logout(){

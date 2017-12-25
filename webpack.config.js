@@ -6,7 +6,7 @@ module.exports = {
     app: './src/app.js' 
   },
   output: {
-    path: path.resolve(__dirname, 'public/dist'),
+    path: path.resolve(__dirname, 'public/build'),
     filename: 'bundle.js',
     sourceMapFilename: 'bundle.map'
   },

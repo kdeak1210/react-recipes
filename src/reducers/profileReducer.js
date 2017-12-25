@@ -14,10 +14,10 @@ export default (state = initialState, action) => {
     //   updated['all'] = action.payload;
     //   return updated;
 
-    case constants.PROFILE_CREATED:
-      console.log('PROFILE_CREATED: ' + JSON.stringify(action.payload));
-      updated['all'].push(action.payload);
-      return updated;
+    // case constants.PROFILE_CREATED:
+    //   console.log('PROFILE_CREATED: ' + JSON.stringify(action.payload));
+    //   updated['all'].push(action.payload);
+    //   return updated;
 
     case constants.PROFILE_RECEIVED:
       console.log('PROFILE_RECEIVED: ' + JSON.stringify(action.payload));

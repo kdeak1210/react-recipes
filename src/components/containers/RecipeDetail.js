@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { FullRecipe } from '../presentation';
 import { connect } from 'react-redux';
-import actions from '../../actions'
+import actions from '../../actions';
 
 class RecipeDetail extends Component {
 
@@ -21,11 +22,19 @@ class RecipeDetail extends Component {
   render(){
     const { id } = this.props.match.params;
     const recipe = this.props.recipe.map[id];
-    console.log(recipe);
-    
+   
     return(
       <div>
-        Recipe Detail for {id}
+        { (recipe == null)
+          ? ''
+          : <FullRecipe
+              author={recipe.author.username}
+              title={recipe.title}
+              image={recipe.image}
+              description={recipe.description}
+              steps={recipe.steps}
+            />
+        }
       </div>
     )
   }
