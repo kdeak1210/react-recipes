@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Preview } from '../presentation';
+import { FeedPreview } from '../presentation';
 import { APIManager } from '../../utils';
 import { connect } from 'react-redux';
 import actions from '../../actions';
@@ -19,13 +19,16 @@ class Feed extends Component {
         <h4>FEED (list of recent recipes)</h4>
         <ul style={{listStyle: 'none', paddingLeft: '0px'}}>
         { recipes.map((recipe, i) => {
+          
+          const { id, author, title, image, description } = recipe;
           return (
-            <li key={recipe.id}>
-              <Preview
-                author={recipe.author.username || 'unknown'}
-                title={recipe.title}
-                image={recipe.image}
-                description={recipe.description} 
+            <li key={id}>
+              <FeedPreview
+                id={id}
+                author={author.username}
+                title={title}
+                image={image}
+                description={description} 
                 />
             </li>
           )

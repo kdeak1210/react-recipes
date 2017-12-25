@@ -1,9 +1,6 @@
 import constants from '../constants';
 import { APIManager } from '../utils';
 
-/** A modular method to run all of the 'gets' through 
- * - should handle all scenarios. Returns the promise to allow it to swing
- * back and continue the chain to wherever calls this method */
 const getRequest = (path, params, actionType) => {
   return (dispatch) => // No curly brace wrap here, So can return the PROMISE
 
@@ -19,7 +16,6 @@ const getRequest = (path, params, actionType) => {
       })
     })
     .catch((err) => {
-      
       throw err // propagate the error down the chain
     })
 }
@@ -51,13 +47,19 @@ export default {
 
   createRecipe: (params) => {
     return (dispatch) => {
-      return dispatch(postRequest('/api/recipe', params, constants.RECIPE_CREATED))
+      return dispatch(postRequest('/api/recipe', params, constants.RECIPE_CREATED));
     }
   },
   
   fetchRecipes: (params) => {
     return (dispatch) => {
-      return dispatch(getRequest('/api/recipe', params, constants.RECIPES_RECEIVED))
+      return dispatch(getRequest('/api/recipe', params, constants.RECIPES_RECEIVED));
+    }
+  },
+
+  fetchRecipeById: (id) => {
+    return (dispatch) => {
+      return dispatch(getRequest(`/api/recipe/${id}`, null, constants.RECIPE_RECEIVED));
     }
   },
   
