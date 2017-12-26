@@ -9,7 +9,7 @@ class Home extends Component {
 
         <div className="row">
           <div className="col-md-6">
-            <Feed />
+            <Feed type="public"/>
           </div>
           <div className="col-md-6">
             <Account />

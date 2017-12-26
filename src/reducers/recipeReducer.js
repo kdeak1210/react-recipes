@@ -1,8 +1,9 @@
 import constants from '../constants';
 
 var initialState = {
-  all: [],
-  map: {}
+  all: null,
+  map: {},
+  userRecipes: {}
 }
 
 export default (state = initialState, action) => {
@@ -27,6 +28,16 @@ export default (state = initialState, action) => {
       let list = Object.assign([], updated['all']);
       list.unshift(action.payload);
       updated['all'] = list;
+      return updated;
+
+    case constants.PROFILE_RECIPES_RECEIVED:
+      //console.log('PROFILE_RECIPES_RECEIVED: ' + JSON.stringify(action.payload));
+      //console.log(action.params['author.username']);    
+      const username = action.params['author.username'];
+      let updatedUserMap = Object.assign({}, updated['userRecipes']);
+      updatedUserMap[username] = action.payload
+      updated['userRecipes'] = updatedUserMap;
+      console.log(updated)
       return updated;
 
     default:

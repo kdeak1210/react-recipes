@@ -11,7 +11,7 @@ class ProfileDisplay extends Component {
           <Profile username={username}/>
         </div>
         <div className="col-md-7">
-          <Feed />
+          <Feed type="user" username={ username }/>
         </div>
       </div>
     )

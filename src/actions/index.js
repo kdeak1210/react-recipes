@@ -62,7 +62,13 @@ export default {
       return dispatch(getRequest(`/api/recipe/${id}`, null, constants.RECIPE_RECEIVED));
     }
   },
-  
+
+  fetchProfileRecipes: (params) => {
+    return (dispatch) => {
+      return dispatch(getRequest('/api/recipe', params, constants.PROFILE_RECIPES_RECEIVED));
+    }
+  },
+
   fetchProfiles: () => {
     return (dispatch) => {
       return dispatch(getRequest('/api/profile', null, constants.PROFILES_RECEIVED));
