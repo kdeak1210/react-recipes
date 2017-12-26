@@ -1,9 +1,9 @@
 import constants from '../constants';
 
 var initialState = {
-  all: null,
-  map: {},
-  userRecipes: {}
+  all: null,      // List of all the recipes (for public feed)
+  fullDetail: {}, // keys as recipe IDs, values = full detail
+  userRecipes: {} // keys as usernames, values = all of a user's reicpes
 }
 
 export default (state = initialState, action) => {
@@ -15,30 +15,39 @@ export default (state = initialState, action) => {
       updated['all'] = action.payload
       return updated;
 
-    case constants.RECIPE_RECEIVED:
+    case constants.RECIPE_RECEIVED: {
       //console.log('RECIPE_RECEIVED: ' + JSON.stringify(action.payload));
-      let updatedMap = Object.assign({}, updated['map']);
+      let updatedMap = Object.assign({}, updated['fullDetail']);
       updatedMap[action.payload.id] = action.payload;
-      updated['map'] = updatedMap;
-      
+      updated['fullDetail'] = updatedMap; 
       return updated;
+    }
 
-    case constants.RECIPE_CREATED:
+    case constants.RECIPE_CREATED: {
       //console.log('RECIPE_CREATED: ' + JSON.stringify(action.payload));
       let list = Object.assign([], updated['all']);
       list.unshift(action.payload);
       updated['all'] = list;
-      return updated;
 
-    case constants.PROFILE_RECIPES_RECEIVED:
-      //console.log('PROFILE_RECIPES_RECEIVED: ' + JSON.stringify(action.payload));
-      //console.log(action.params['author.username']);    
-      const username = action.params['author.username'];
-      let updatedUserMap = Object.assign({}, updated['userRecipes']);
-      updatedUserMap[username] = action.payload
-      updated['userRecipes'] = updatedUserMap;
-      console.log(updated)
+      // now add to the userRecipes map, for username key of creator
+      const { username } = action.payload.author;
+      let updatedMap = Object.assign({}, updated['userRecipes']);
+      let updatedList = Object.assign([], updatedMap[username]);
+      updatedList.unshift(action.payload);
+      updatedMap[username] = updatedList;
+      updated['userRecipes'] = updatedMap;
+
       return updated;
+    }
+
+    case constants.PROFILE_RECIPES_RECEIVED: {
+      //console.log('PROFILE_RECIPES_RECEIVED: ' + JSON.stringify(action.payload));
+      const username = action.params['author.username'];
+      let updatedMap = Object.assign({}, updated['userRecipes']);
+      updatedMap[username] = action.payload
+      updated['userRecipes'] = updatedMap;
+      return updated;
+    }
 
     default:
       return updated;

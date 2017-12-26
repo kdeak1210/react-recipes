@@ -1,7 +1,7 @@
 import Account from './Account';
 import CreateRecipe from './CreateRecipe';
 import Feed from './Feed';
-import Profile from './Profile';
+import ProfileDetail from './ProfileDetail';
 import RecipeDetail from './RecipeDetail';
 import UpdateProfile from './UpdateProfile';
 
@@ -10,7 +10,7 @@ export {
   Account,
   CreateRecipe,
   Feed,
-  Profile,
+  ProfileDetail,
   RecipeDetail,
   UpdateProfile
 

@@ -1,8 +1,3 @@
-/**Express app config.
- * Remember to set environment variables in .env!!!
- * Required: PORT, MONGO_URL, SESSION_SECRET, TOKEN_SECRET (account route)
- */
-
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -11,11 +6,13 @@ const session = require('client-sessions');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
+const Promise = require('bluebird')
 require('dotenv').config();
 
 const app = express();
 
 // Connect to MongoDB via Mongoose ODM (use env variable for mongo URL)
+mongoose.Promise = Promise; // fix deprecation warning
 mongoose.connect(process.env.MONGO_URL, {useMongoClient: true}, (err) => {
   if (err){
     console.log('Failer to connect to MongoDB');

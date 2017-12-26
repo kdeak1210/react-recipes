@@ -33,14 +33,16 @@ class Feed extends Component {
     const recipes = (this.props.type == 'public')
     ? this.props.recipe.all || []
     : this.props.recipe.userRecipes[this.props.username] || [];
-    console.log(recipes)
 
     return(
       <div>
-        <h4>FEED (list of recent recipes)</h4>
+        { (this.props.type=='public')
+          ? <h4>Recent Recipes Feed</h4>
+          : <h4>{this.props.username} has created {recipes.length} recipes</h4>
+        }
+
         <ul style={{listStyle: 'none', paddingLeft: '0px'}}>
         { recipes.map((recipe, i) => {
-
           const { id, author, title, image, description } = recipe;
           return (
             <li key={id}>

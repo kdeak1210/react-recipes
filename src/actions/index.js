@@ -69,9 +69,9 @@ export default {
     }
   },
 
-  fetchProfiles: () => {
+  fetchProfile: (params) => {
     return (dispatch) => {
-      return dispatch(getRequest('/api/profile', null, constants.PROFILES_RECEIVED));
+      return dispatch(getRequest('/api/profile', params, constants.PROFILE_RECEIVED));
     }
   },
 
@@ -108,12 +108,11 @@ export default {
         dispatch({
           type: constants.PROFILE_UPDATED,
           payload: payload
-        });    
+        }); 
       })
       .catch(err => {
         alert(err);
       })
     }
   }
-
 }

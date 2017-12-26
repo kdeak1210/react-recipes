@@ -11,7 +11,7 @@ class RecipeDetail extends Component {
 
   fetchRecipe(){
     const { id } = this.props.match.params;    
-    if (this.props.recipe.map[id] != null){
+    if (this.props.recipe.fullDetail[id] != null){
       return;
     }
 
@@ -21,7 +21,7 @@ class RecipeDetail extends Component {
 
   render(){
     const { id } = this.props.match.params;
-    const recipe = this.props.recipe.map[id];
+    const recipe = this.props.recipe.fullDetail[id];
    
     return(
       <div>

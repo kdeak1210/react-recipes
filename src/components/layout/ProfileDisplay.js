@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Profile, Feed } from '../containers';
+import { ProfileDetail, Feed } from '../containers';
 
 class ProfileDisplay extends Component {
 
@@ -8,7 +8,7 @@ class ProfileDisplay extends Component {
     return(
       <div className="row">
         <div className="col-md-5">
-          <Profile username={username}/>
+          <ProfileDetail username={username}/>
         </div>
         <div className="col-md-7">
           <Feed type="user" username={ username }/>
