@@ -34,10 +34,17 @@ class Account extends Component {
     return(
       <div>
         { (user == null)
-          ? [
-            <RegisterForm key='register' onSubmit={this.handleRegister.bind(this)}/>,
-            <LoginForm key='login' onSubmit={this.handleLogin.bind(this)}/>            
-          ]
+          ? <article>
+              <header>
+                <h3><a href="#">Register an Account</a></h3>
+                <RegisterForm onSubmit={this.handleRegister.bind(this)}/>                
+              </header>
+              <hr />
+              <header>
+                <h3><a href="#">Or, Login Below!</a></h3>
+                <LoginForm onSubmit={this.handleLogin.bind(this)}/>                
+              </header>
+            </article>
           : <Greeting username={user.username} onLogout={this.logout.bind(this)}/>
         }   
       </div>

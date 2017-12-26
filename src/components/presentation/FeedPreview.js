@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const Preview = ({id, author, title, image, description}) => {
-  // const { title, description, author, image } = props
+const Preview = ({id, author, title, image, description, timestamp}) => {
   return(
-    <div style={{background: '#f9f9f9', minHeight:'150px', border: '1px solid black', margin: '10px 0', paddingLeft: '10px'}}>
-      <img style={{float: 'right', width: '120px', maxHeight: '130px'}} src={image} />        
-      <h2><Link to={`/recipe/${id}`}>{title}</Link></h2>
-      <p>Author: <Link to={`/profile/${author}`}>{author}</Link></p>
-      <p>Description: {description}</p>
+    <div>
+      <Link to={`/recipe/${id}`} className="image left">
+        <img src={image} alt={title} style={{maxHeight: 180, maxWidth: 220}} />
+      </Link>
+      <div>
+        <header>
+          <span className="date">Submitted: {timestamp}</span>
+          <h3><Link to={`/recipe/${id}`}>{title}</Link></h3>
+          <h5><Link to={`/profile/${author}`}>by: {author}</Link></h5>
+        </header>
+        <p>{description}</p>
+      </div>
     </div>
   )
 }

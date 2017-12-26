@@ -48,7 +48,7 @@ const renderSteps = ({ fields, meta: { error, submitFailed } }) => (
 const FieldArraysForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} >
       <Field
         name="title"
         type="text"

@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 let LoginForm = (props) => {
   const { handleSubmit } = props;
   return (
-    <form onSubmit={ handleSubmit }>
+    <form onSubmit={ handleSubmit } style={{border: '1px solid #ccc', padding: 10}}>
       <div>
         <label htmlFor="email">Email</label>
         <Field name="email" component="input" type="email" />
@@ -12,7 +12,7 @@ let LoginForm = (props) => {
       <div>
         <label htmlFor="password">Password</label>
         <Field name="password" component="input" type="password" />
-      </div>
+      </div><br />
       <button type="submit">Login</button>
     </form>
   )

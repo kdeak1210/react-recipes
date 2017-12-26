@@ -36,27 +36,21 @@ class Feed extends Component {
 
     return(
       <div>
-        { (this.props.type=='public')
-          ? <h4>Recent Recipes Feed</h4>
-          : <h4>{this.props.username} has created {recipes.length} recipes</h4>
-        }
-
-        <ul style={{listStyle: 'none', paddingLeft: '0px'}}>
         { recipes.map((recipe, i) => {
-          const { id, author, title, image, description } = recipe;
+          const { id, author, title, image, description, timestamp } = recipe;
           return (
-            <li key={id}>
+            <article className="box excerpt" key={id}>
               <FeedPreview
                 id={id}
                 author={author.username}
                 title={title}
                 image={image}
-                description={description} 
+                description={description}
+                timestamp={timestamp}
                 />
-            </li>
+            </article>
           )
         })}
-        </ul>         
       </div>
     )
   }

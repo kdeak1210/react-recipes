@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 let RegisterForm = (props) => {
   const { handleSubmit } = props;
   return(
-    <form onSubmit={ handleSubmit }>
+    <form onSubmit={ handleSubmit } style={{border: '1px solid #ccc', padding: 10}}>
       <div>
         <label htmlFor="username">Username</label>
         <Field name="username" component="input" type="text" />
@@ -17,7 +17,7 @@ let RegisterForm = (props) => {
       <div>
         <label htmlFor="password">Password</label>
         <Field name="password" component="input" type="password" />
-      </div>
+      </div><br />
       <button type="submit">Register</button>
     </form>
   )
