@@ -34,15 +34,15 @@ router.get('/:action', (req, res) => {
     // Verify token, if valid send back the current user's id
     jwt.verify(req.session.token, process.env.TOKEN_SECRET, (err, decoded) => {
       if (err){
+        // Invalid token - log them out and start it over
+        req.session.reset();
         res.json({
           confirmation: 'fail',
-          message: 'Access Denied'  // Invalid token, non-specific message hides JWT use
+          user: null
         });
 
         return;
       }
-
-      console.log(decoded);
       
       controllers.profile
       .getById(decoded.id, false)
