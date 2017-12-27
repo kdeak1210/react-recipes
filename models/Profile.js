@@ -6,7 +6,7 @@ const ProfileSchema = mongoose.Schema({
   email: {type: String, default: ''},
   bio: {type: String, default: ''},
   city: {type: String, default: ''},
-  gender: {type: String, default: ''},
+  website: {type: String, default: ''},
   image: {type: String, default: ''},
   timestamp: {type: Date, default: Date.now()}
 });
@@ -18,7 +18,7 @@ ProfileSchema.methods.summary = function(){
     email: this.email,
     bio: this.bio,
     city: this.city,
-    gender: this.gender,
+    website: this.gender,
     image: this.image,
     timestamp: this.timestamp,
     id: this._id.toString()
