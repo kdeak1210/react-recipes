@@ -1,33 +1,34 @@
 import React, { Component } from 'react';
 import { Account, Feed } from '../containers';
+import { Navbar } from '../presentation';
 
 class Home extends Component {
   render(){
     return(
       <div id="page-wrapper">
-        <div id="header-wrapper">
-          <div className="container">
-            <header id="header">
-              <div className="inner">
-                <h1><a href="#" id="logo">React Recipes</a></h1>
-              </div>
-            </header>
-          </div>
-        </div>
+        
+        <Navbar />
 
         <div id="main-wrapper">
 					<div className="wrapper style3">
 						<div className="inner">
 							<div className="container">
 								<div className="row">
-									<div className="8u 12u(mobile)">
+									<div className="7u 12u(mobile)">
+                      <header className="first major">
+												<h2 className="icon fa-file-text-o">Recipe Feed</h2>                        
+                        <p>Recently submitted recipes</p>
+                      </header>
+
 											<section className="box article-list">
-												<h2 className="icon fa-file-text-o">Recent Recipes</h2>
 
                         <Feed type="public" />
 
 											</section>
 									</div>
+
+                  <div className="1u"></div>
+
 									<div className="4u 12u(mobile)">
 
 											<section className="box spotlight">

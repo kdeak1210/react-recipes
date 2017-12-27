@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 let RegisterForm = (props) => {
   const { handleSubmit } = props;
   return(
-    <form onSubmit={ handleSubmit } style={{border: '1px solid #ccc', padding: 10}}>
+    <form onSubmit={ handleSubmit } style={{background: 'rgba(235, 235, 235, 0.82)', border: '1px solid #ccc', borderRadius: 12, padding: 12}}>
       <div>
         <label htmlFor="username">Username</label>
         <Field name="username" component="input" type="text" />

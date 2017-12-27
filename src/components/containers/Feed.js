@@ -30,12 +30,17 @@ class Feed extends Component {
   }
 
   render(){
-    const recipes = (this.props.type == 'public')
+    const { type } = this.props;
+    const recipes = (type == 'public')
     ? this.props.recipe.all || []
     : this.props.recipe.userRecipes[this.props.username] || [];
 
     return(
       <div>
+        { (type == 'user')
+          ? <h3>{this.props.username} has submitted {recipes.length} recipes</h3>
+          : ''
+        }
         { recipes.map((recipe, i) => {
           const { id, author, title, image, description, timestamp } = recipe;
           return (
@@ -47,7 +52,7 @@ class Feed extends Component {
                 image={image}
                 description={description}
                 timestamp={timestamp}
-                />
+              />
             </article>
           )
         })}

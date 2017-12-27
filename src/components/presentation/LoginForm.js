@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 let LoginForm = (props) => {
   const { handleSubmit } = props;
   return (
-    <form onSubmit={ handleSubmit } style={{border: '1px solid #ccc', padding: 10}}>
+    <form onSubmit={ handleSubmit } style={{background: 'rgba(235, 235, 235, 0.82)', border: '1px solid #ccc', borderRadius: 12, padding: 12}}>
       <div>
         <label htmlFor="email">Email</label>
         <Field name="email" component="input" type="email" />

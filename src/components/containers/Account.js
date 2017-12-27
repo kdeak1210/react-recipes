@@ -36,13 +36,13 @@ class Account extends Component {
         { (user == null)
           ? <article>
               <header>
-                <h3><a href="#">Register an Account</a></h3>
-                <RegisterForm onSubmit={this.handleRegister.bind(this)}/>                
-              </header>
-              <hr />
-              <header>
-                <h3><a href="#">Or, Login Below!</a></h3>
+                <h3><a href="#">Login to Your Account</a></h3>
                 <LoginForm onSubmit={this.handleLogin.bind(this)}/>                
+              </header>
+              <hr /><br />
+              <header>
+                <h3><a href="#">Or, Register Below!</a></h3>
+                <RegisterForm onSubmit={this.handleRegister.bind(this)}/>                
               </header>
             </article>
           : <Greeting username={user.username} onLogout={this.logout.bind(this)}/>

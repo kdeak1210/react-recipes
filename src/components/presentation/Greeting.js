@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-class Greeting extends Component {
-  render(){
-    return(
-      <div>
-        <h3>Hello {this.props.username}!</h3>
-        <Link to="/currentuser">
-          <button className="btn btn-warning" style={{marginRight: '10px'}}>
-            Manage Profile
-          </button>
-        </Link>
-        <button onClick={this.props.onLogout} className="btn btn-danger" >
-          Logout
+const Greeting = (props) => {
+  return(
+    <div>
+      <h3>Hello {props.username}!</h3>
+      <Link to="/currentuser">
+        <button className="button icon fa-cog" style={{marginRight: '10px'}}>
+          Account
         </button>
-      </div>
-    )
-  }
+      </Link>
+      <button className="button alt icon fa-user" onClick={props.onLogout}>
+        Logout
+      </button>
+    </div>
+  )
 }
 
 Greeting.propTypes = {

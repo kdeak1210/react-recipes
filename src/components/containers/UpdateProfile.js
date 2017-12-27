@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ProfileForm } from '../presentation';
-import Dropzone from 'react-dropzone';
+//import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import actions from '../../actions';
 
@@ -14,10 +14,10 @@ class UpdateProfile extends Component {
 
   updateProfile(updated){
     console.log('Update Profile: ' + JSON.stringify(updated))
-    // if (Object.keys(this.state.updated).length == 0){
-    //   alert('No Changes Made...');
-    //   return;
-    // }
+    if (Object.keys(updated).length == 0){
+      alert('You didn\'t make any changes!');
+      return;
+    }
 
     this.props.updateProfile(this.props.user.id, updated);
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ProfileDetail } from '../presentation';
 import { connect } from 'react-redux';
 import actions from '../../actions';
 
@@ -25,13 +26,14 @@ class Profile extends Component{
     
     return(
       <div>
-        <ul>
-          <li>{username}</li>
-          <li>{email}</li>
-          <li>{city}</li>
-          <li>{gender}</li>
-          <li>{timestamp}</li>
-        </ul>
+          <ProfileDetail 
+            username={username}
+            email={email}
+            city={city}
+            gender={gender}
+            image={image}
+            timestamp={timestamp}
+          />
       </div>
     )
   }
