@@ -19,7 +19,9 @@ class UpdateProfile extends Component {
       return;
     }
 
-    this.props.updateProfile(this.props.user.id, updated);
+    this.props.updateProfile(this.props.user.id, updated)
+    .then(response => alert('Successfully updated your profile!'))
+    .catch(err => alert(err));
   }
   
   render(){

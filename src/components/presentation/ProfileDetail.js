@@ -5,7 +5,7 @@ const ProfileDetail = ({username, email, city, website, image, bio, timestamp}) 
     <section className="box spotlight">
       <header>
         <h2><a>{username}</a></h2>
-        <p>{ (city) ? city : 'city not provided' }</p>
+        <p>{ (city) ? city : 'N/A' }</p>
       </header>
 
       <article>
@@ -17,13 +17,16 @@ const ProfileDetail = ({username, email, city, website, image, bio, timestamp}) 
         </a>
         <span>
           <strong>Email: </strong>
-          { email }
+          { (email) ? email : 'N/A' }
         </span><br/>        
         <span>
           <strong>Website: </strong>
-          <a href="https://www.google.com" target="_blank">
-            https://www.google.com
-          </a>
+          { (website) 
+            ? <a href={website} target="_blank">
+                {website}
+              </a>
+            : 'N/A'
+          }   
         </span>
         <br/><br />
         <h4>User Bio</h4>

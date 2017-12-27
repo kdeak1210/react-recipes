@@ -18,7 +18,7 @@ ProfileSchema.methods.summary = function(){
     email: this.email,
     bio: this.bio,
     city: this.city,
-    website: this.gender,
+    website: this.website,
     image: this.image,
     timestamp: this.timestamp,
     id: this._id.toString()

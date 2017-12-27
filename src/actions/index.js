@@ -6,8 +6,10 @@ const getRequest = (path, params, actionType) => {
 
     APIManager.get(path, params)
     .then((response) => {
-      //console.log('GET: ' + JSON.stringify(response))
-      const payload = response.results || response.result || response.user
+      if (response.confirmation != 'success')
+        throw new Error(response.message)
+
+      const payload = response.results || response.result || response.user;
       
       dispatch({
         type: actionType,
@@ -15,9 +17,7 @@ const getRequest = (path, params, actionType) => {
         params: params        
       })
     })
-    .catch((err) => {
-      throw err // propagate the error down the chain
-    })
+    .catch(err => { throw err })  // propagate error down the chain
 }
 
 const postRequest = (path, params, actionType) => {
@@ -25,12 +25,10 @@ const postRequest = (path, params, actionType) => {
     
     APIManager.post(path, params)
     .then((response) => {
-      //console.log('POST: ' + JSON.stringify(response))
-      if (response.confirmation != 'success'){
+      if (response.confirmation != 'success')
         throw new Error(response.message)
-      }
       
-      const payload = response.results || response.result || response.user
+      const payload = response.results || response.result || response.user;
       
       dispatch({
         type: actionType,
@@ -38,9 +36,26 @@ const postRequest = (path, params, actionType) => {
         params: params
       })
     })
-    .catch((err) => {
-      throw err // propagate the error down the chain
+    .catch(err => { throw err })  // propagate error down the chain
+}
+
+const putRequest = (path, params, actionType) => {
+  return (dispatch) => 
+
+    APIManager.put(path, params)
+    .then(response => {
+      if (response.confirmation != 'success')
+        throw new Error(response.message);
+
+      const payload = response.results || response.result || response.user;
+
+      dispatch({
+        type: actionType,
+        payload: payload,
+        params: params
+      })
     })
+    .catch(err => { throw err })  // propagate error down the chain 
 }
 
 export default {
@@ -101,18 +116,8 @@ export default {
 
   updateProfile: (id, updated) => {
     return (dispatch) => {
-      APIManager.put(`/api/profile/${id}`, updated)
-      .then(response => {
-        const payload = response.result
-        console.log('Profile Updated: ' + JSON.stringify(payload));
-        dispatch({
-          type: constants.PROFILE_UPDATED,
-          payload: payload
-        }); 
-      })
-      .catch(err => {
-        alert(err);
-      })
+      return dispatch(putRequest(`/api/profile/${id}`, updated, constants.PROFILE_UPDATED));
     }
   }
+  
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 
 let ProfileForm = (props) => {
   const { handleSubmit } = props;
-  const { website, city, bio } = props.profile;
+  const { website, city, bio } = props.initialValues || {};
   return(
     <form onSubmit={ handleSubmit } style={{background: 'rgba(235, 235, 235, 0.82)', border: '1px solid #ccc', borderRadius: 12, padding: 12}}>
       <div>
@@ -12,7 +13,7 @@ let ProfileForm = (props) => {
           name="website" 
           component="input" 
           type="text" 
-          placeholder={website}
+          value={website}
         />
       </div>
       <div>
@@ -21,7 +22,7 @@ let ProfileForm = (props) => {
           name="city" 
           component="input" 
           type="text" 
-          placeholder={city}
+          defaultValue={city}
         />
       </div>
       <div>
@@ -30,7 +31,7 @@ let ProfileForm = (props) => {
           name="bio" 
           component="input" 
           type="text"
-          placeholder={bio} 
+          defaultValue={bio} 
         />
       </div>
       <br />
@@ -39,6 +40,14 @@ let ProfileForm = (props) => {
   )
 }
 
-export default ProfileForm = reduxForm({
+ProfileForm = reduxForm({
   form: 'profile' // a unique name to identify the form
 })(ProfileForm);
+
+ProfileForm = connect(
+  state => ({
+    initialValues: state.account.user // pull initial values from account reducer
+  })
+)(ProfileForm)
+
+export default ProfileForm
