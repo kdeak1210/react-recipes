@@ -10,6 +10,7 @@ class UpdateProfile extends Component {
   componentDidMount(){
     if (this.props.user == null){
       this.props.checkCurrentUser()
+      .catch(err => console.log(err.message));      
     }
   }
 

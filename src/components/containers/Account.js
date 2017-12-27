@@ -8,7 +8,6 @@ class Account extends Component {
   componentDidMount(){
     if (this.props.user == null){
       this.props.checkCurrentUser() // check user on page refresh/CDM hook
-      .then()
       .catch(err => console.log(err.message));
     }
   }
