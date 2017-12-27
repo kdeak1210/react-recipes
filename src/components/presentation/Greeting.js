@@ -7,11 +7,15 @@ const Greeting = (props) => {
     <div>
       <h3>Hello {props.username}!</h3>
       <Link to="/currentuser">
-        <button className="button icon fa-cog" style={{marginRight: '10px'}}>
+        <button 
+          className="button icon fa-cog" 
+          style={{marginRight: '10px'}}>
           Account
         </button>
       </Link>
-      <button className="button alt icon fa-user" onClick={props.onLogout}>
+      <button 
+        className="button alt icon fa-arrow-circle-right" 
+        onClick={props.onLogout}>
         Logout
       </button>
     </div>

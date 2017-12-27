@@ -10,7 +10,7 @@ class Home extends Component {
         <Navbar />
 
         <div id="main-wrapper">
-					<div className="wrapper style3">
+					<div className="wrapper style3" style={{paddingTop: 50}}>
 						<div className="inner">
 							<div className="container">
 								<div className="row">
@@ -32,7 +32,7 @@ class Home extends Component {
 									<div className="4u 12u(mobile)">
 
 											<section className="box spotlight">
-												<h2 className="icon fa-file-text-o">Account</h2>
+												<h2 className="icon fa-user">Account</h2>
 
                           <Account />
 													

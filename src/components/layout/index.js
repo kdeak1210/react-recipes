@@ -1,10 +1,10 @@
-import CurrentUser from './CurrentUser';
+import UserDashboard from './UserDashboard';
 import Home from './Home';
 import ProfileDisplay from './ProfileDisplay';
 
 export {
 
-  CurrentUser,
+  UserDashboard,
   Home,
   ProfileDisplay
 

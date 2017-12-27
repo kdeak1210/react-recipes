@@ -14,15 +14,14 @@ class Profile extends Component{
     if (this.props.profile[username] != null){
       return;
     }
-    
-    
+        
     this.props.fetchProfile({username: username})
     .catch(err => console.log(err));
   }
 
   render(){
     const profile = this.props.profile[this.props.username] || {};    
-    const { username, email, city, gender, image, timestamp } = profile;
+    const { username, email, city, website, image, bio, timestamp } = profile;
     
     return(
       <div>
@@ -30,8 +29,9 @@ class Profile extends Component{
             username={username}
             email={email}
             city={city}
-            gender={gender}
+            website={website}
             image={image}
+            bio={bio}
             timestamp={timestamp}
           />
       </div>
