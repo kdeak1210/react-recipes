@@ -99,9 +99,9 @@ export default {
     }
   },
 
-  updateProfile: (profile, updated) => {
+  updateProfile: (id, updated) => {
     return (dispatch) => {
-      APIManager.put(`/api/profile/${profile.id}`, updated)
+      APIManager.put(`/api/profile/${id}`, updated)
       .then(response => {
         const payload = response.result
         console.log('Profile Updated: ' + JSON.stringify(payload));

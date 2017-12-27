@@ -19,7 +19,8 @@ module.exports = {
         } else {
           let list = [];
           profiles.forEach((profile) => {
-            list.push(profile.summary())
+            if (profile != null)
+              list.push(profile.summary())
           });
 
           resolve(list);
@@ -33,7 +34,12 @@ module.exports = {
     return new Promise((resolve, reject) => {
       Profile.findById(id, (err, profile) => {
         if (err){
-          reject(err)
+          reject(err);
+          return;
+        }
+
+        if (profile == null){
+          resolve(null);
           return;
         }
 

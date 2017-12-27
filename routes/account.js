@@ -42,6 +42,8 @@ router.get('/:action', (req, res) => {
         return;
       }
 
+      console.log(decoded);
+      
       controllers.profile
       .getById(decoded.id, false)
       .then(result => {

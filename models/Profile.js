@@ -4,6 +4,7 @@ const ProfileSchema = mongoose.Schema({
   username: {type: String, default: ''},
   password: {type: String, default: ''},
   email: {type: String, default: ''},
+  bio: {type: String, default: ''},
   city: {type: String, default: ''},
   gender: {type: String, default: ''},
   image: {type: String, default: ''},
@@ -15,6 +16,7 @@ ProfileSchema.methods.summary = function(){
   const summary = {
     username: this.username,
     email: this.email,
+    bio: this.bio,
     city: this.city,
     gender: this.gender,
     image: this.image,
