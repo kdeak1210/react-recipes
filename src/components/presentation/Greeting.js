@@ -10,7 +10,7 @@ const Greeting = (props) => {
         <button 
           className="button icon fa-cog" 
           style={{marginRight: '10px'}}>
-          Account
+          Dashboard
         </button>
       </Link>
       <button 

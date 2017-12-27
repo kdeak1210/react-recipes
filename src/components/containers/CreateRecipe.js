@@ -19,6 +19,7 @@ class CreateRecipe extends Component {
   render(){
     return(
       <div>
+        <h3>Submit a New Recipe to the Site</h3>
         <RecipeForm onSubmit={this.submitRecipe.bind(this)} />
       </div>
     )

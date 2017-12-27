@@ -3,16 +3,16 @@ import { Field, reduxForm } from 'redux-form';
 
 let ProfileForm = (props) => {
   const { handleSubmit } = props;
-  const { bio, city, gender } = props.profile;
+  const { website, city, bio } = props.profile;
   return(
-    <form onSubmit={ handleSubmit }>
+    <form onSubmit={ handleSubmit } style={{background: 'rgba(235, 235, 235, 0.82)', border: '1px solid #ccc', borderRadius: 12, padding: 12}}>
       <div>
-        <label htmlFor="bio">Bio</label>
+        <label htmlFor="website">Website URL</label>
         <Field 
-          name="bio" 
+          name="website" 
           component="input" 
-          type="text"
-          placeholder={bio} 
+          type="text" 
+          placeholder={website}
         />
       </div>
       <div>
@@ -25,14 +25,15 @@ let ProfileForm = (props) => {
         />
       </div>
       <div>
-        <label htmlFor="gender">Gender</label>
+        <label htmlFor="bio">Bio</label>
         <Field 
-          name="gender" 
+          name="bio" 
           component="input" 
-          type="text" 
-          placeholder={gender}
+          type="text"
+          placeholder={bio} 
         />
       </div>
+      <br />
       <button type="submit">Update Profile</button>
     </form>
   )

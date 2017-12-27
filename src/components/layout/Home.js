@@ -43,24 +43,9 @@ class Home extends Component {
 						</div>
 					</div>
 				</div>
-      </div>
-      
-      
+      </div> 
     )
   }
 }
 
 export default Home;
-
-{/* <div classNameName="container">
-        <h1>HOME LAYOUT</h1>
-
-        <div classNameName="row">
-          <div classNameName="col-md-6">
-            <Feed type="public"/>
-          </div>
-          <div classNameName="col-md-6">
-            <Account />
-          </div>
-        </div>
-      </div> */}

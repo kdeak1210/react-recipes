@@ -25,15 +25,15 @@ class Profile extends Component{
     
     return(
       <div>
-          <ProfileDetail 
-            username={username}
-            email={email}
-            city={city}
-            website={website}
-            image={image}
-            bio={bio}
-            timestamp={timestamp}
-          />
+        <ProfileDetail 
+          username={username}
+          email={email}
+          city={city}
+          website={website}
+          image={image}
+          bio={bio}
+          timestamp={timestamp}
+        />
       </div>
     )
   }

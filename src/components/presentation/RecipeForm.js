@@ -14,15 +14,10 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 // RENDER THE STEPS
 const renderSteps = ({ fields, meta: { error, submitFailed } }) => (
   <ul>
-    <li>
-      <button type="button" onClick={() => fields.push({})}>
-        Add Step
-      </button>
-      {submitFailed && error && <span>{error}</span>}
-    </li>
     {fields.map((step, index) => (
       <li key={index}>
         <button
+          style={{float: 'right', backgroundColor: '#b93a2d'}}
           type="button"
           title="Remove Step"
           onClick={() => fields.remove(index)}
@@ -40,15 +35,22 @@ const renderSteps = ({ fields, meta: { error, submitFailed } }) => (
           component={renderField}
           label="Duration"
         />
+        <br />
       </li>
     ))}
+    <li>
+      <button type="button" onClick={() => fields.push({})}>
+        Add Step
+      </button>
+      {submitFailed && error && <span>{error}</span>}
+    </li>
   </ul>
 )
 
 const FieldArraysForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit} style={{background: 'rgba(235, 235, 235, 0.82)', border: '1px solid #ccc', borderRadius: 12, padding: 12}}>
       <Field
         name="title"
         type="text"
@@ -67,12 +69,15 @@ const FieldArraysForm = props => {
         component={renderField}
         label="Description"
       />
+      <br />
       <FieldArray name="steps" component={renderSteps} />
       <div>
         <button type="submit" disabled={submitting}>
           Submit
         </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
+        <button
+          style={{backgroundColor:'#b93a2d', marginLeft: 10}} 
+          type="button" disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </button>
       </div>
