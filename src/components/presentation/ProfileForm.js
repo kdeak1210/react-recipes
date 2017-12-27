@@ -22,7 +22,7 @@ let ProfileForm = (props) => {
           name="city" 
           component="input" 
           type="text" 
-          defaultValue={city}
+          value={city}
         />
       </div>
       <div>
@@ -31,7 +31,7 @@ let ProfileForm = (props) => {
           name="bio" 
           component="input" 
           type="text"
-          defaultValue={bio} 
+          value={bio} 
         />
       </div>
       <br />

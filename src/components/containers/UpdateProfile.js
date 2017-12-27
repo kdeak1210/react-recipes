@@ -3,6 +3,7 @@ import { ProfileForm } from '../presentation';
 //import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import actions from '../../actions';
+import swal from 'sweetalert2';
 
 class UpdateProfile extends Component {
 
@@ -13,15 +14,17 @@ class UpdateProfile extends Component {
   }
 
   updateProfile(updated){
-    console.log('Update Profile: ' + JSON.stringify(updated))
-    if (Object.keys(updated).length == 0){
-      alert('You didn\'t make any changes!');
-      return;
-    }
+    // console.log('Update Profile: ' + JSON.stringify(updated))
+    // if (Object.keys(updated).length == 0){
+    //   alert('You didn\'t make any changes!');
+    //   return;
+    // }
 
     this.props.updateProfile(this.props.user.id, updated)
-    .then(response => alert('Successfully updated your profile!'))
-    .catch(err => alert(err));
+    .then(response => {
+      swal('Congrats', 'Successfully updated your profile!', 'success')
+    })
+    .catch(err => swal('Oops..', err.message, 'error'));
   }
   
   render(){

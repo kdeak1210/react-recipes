@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { RecipeForm } from '../presentation';
 import { connect } from 'react-redux';
 import actions from '../../actions';
+import swal from 'sweetalert2';
 
 class CreateRecipe extends Component {
 
@@ -13,7 +14,11 @@ class CreateRecipe extends Component {
     };
     recipe['author'] = author;
 
-    this.props.createRecipe(recipe);
+    this.props.createRecipe(recipe)
+    .then(response => {
+      swal('Thank you', 'Your recipe has submitted successfully', 'success')
+    })
+    .catch(err => alert(err));
   }
   
   render(){
