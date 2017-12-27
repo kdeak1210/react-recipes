@@ -3,14 +3,14 @@ import { FullRecipe } from '../presentation';
 import { connect } from 'react-redux';
 import actions from '../../actions';
 
-class RecipeDetail extends Component {
+class Recipe extends Component {
 
   componentDidMount(){
     this.fetchRecipe();
   }
 
   fetchRecipe(){
-    const { id } = this.props.match.params;    
+    const { id } = this.props.match.params;
     if (this.props.recipe.fullDetail[id] != null){
       return;
     }
@@ -33,6 +33,7 @@ class RecipeDetail extends Component {
               image={recipe.image}
               description={recipe.description}
               steps={recipe.steps}
+              timestamp={recipe.timestamp}
             />
         }
       </div>
@@ -52,4 +53,4 @@ const dispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(stateToProps, dispatchToProps)(RecipeDetail)
+export default connect(stateToProps, dispatchToProps)(Recipe)

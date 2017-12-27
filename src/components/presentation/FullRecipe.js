@@ -1,23 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const FullRecipe = ({author, title, image, description, steps}) => {   
+const FullRecipe = ({author, title, image, description, steps, timestamp}) => {   
   return(
-    <div>
-      <img src={image} alt="Pic" style={{maxHeight: '300px'}}/>
-      <p>{title}</p>
-      <p>{author}</p>
-      <p>{description}</p>
-      <ol>
-      { steps.map((step, i) => {
-        return(
-          <li key={step._id} style={{background:'#f9f9f9'}}>
-            <p>{step.directions}</p>
-            <p>Time: {step.duration}</p>
-          </li>
-        )
-      })}
-      </ol>
-    </div>
+    <section>
+      <header>
+        <h2>{title}</h2>       
+      </header>
+      <a className="image featured">
+        <img src={image} alt={`${title} recipe image`} style={{maxHeight: 300, borderRadius: 15}}/>
+      </a>
+      <header>
+        <p><strong>Submitted By: </strong>
+          <Link to={`/profile/${author}`}>{author}</Link>
+        </p>
+        <p>{timestamp}</p>
+      </header>
+
+      <section className="box article-list">
+        <h2>Recipe Steps</h2>
+        { steps.map((step, index) => {
+          return(
+            <article key={step._id} className="box excerpt">
+              <div>
+                <header>
+                  <h3><a href="#">{`Step ${index + 1}`}</a></h3>
+                  <span className="date">{step.duration}</span>
+                </header>
+                <p>{step.directions}</p>
+              </div>
+            </article>
+          )
+        })}
+      </section>
+    </section>
   )
 }
 

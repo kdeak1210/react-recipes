@@ -9,9 +9,9 @@ const Preview = ({id, author, title, image, description, timestamp}) => {
       </Link>
       <div>
         <header>
-          <span className="date">Submitted: {timestamp}</span>
-          <h3><Link to={`/recipe/${id}`}>{title}</Link></h3>
-          <h5><Link to={`/profile/${author}`}>by: {author}</Link></h5>
+          <h3><Link to={`/recipe/${id}`} style={{textDecoration: 'underline'}}>{title}</Link></h3>
+          <h5>by: <Link to={`/profile/${author}`} style={{textDecoration: 'underline'}}>{author}</Link></h5>
+          <span className="date">Submitted: {timestamp}</span>          
         </header>
         <p>{description}</p>
       </div>
