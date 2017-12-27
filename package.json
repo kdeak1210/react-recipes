@@ -1,11 +1,13 @@
 {
-  "name": "my-react-redux-starter",
+  "name": "react-recipe-book",
   "version": "1.0.0",
-  "description": "My starter template for React/Redux projects with Node/Express backend and MongoDB",
+  "description": "Recipe sharing platform built with React/Redux on MongoDB",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "start": "node app",
+    "build": "NODE_ENV=production webpack && gulp prod",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "Kyle Deak",
