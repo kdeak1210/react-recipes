@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { ProfileForm } from '../presentation';
-//import Dropzone from 'react-dropzone';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../../actions';
 import swal from 'sweetalert2';
+//import Dropzone from 'react-dropzone';
 
 class UpdateProfile extends Component {
 

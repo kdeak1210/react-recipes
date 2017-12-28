@@ -1,12 +1,13 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import styles from './styles';
 
 let ProfileForm = (props) => {
   const { handleSubmit } = props;
   const { website, city, bio } = props.initialValues || {};
   return(
-    <form onSubmit={ handleSubmit } style={{background: 'rgba(235, 235, 235, 0.82)', border: '1px solid #ccc', borderRadius: 12, padding: 12}}>
+    <form onSubmit={ handleSubmit } style={styles.form}>
       <div>
         <label htmlFor="website">Website URL</label>
         <Field 

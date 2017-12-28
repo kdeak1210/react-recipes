@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import styles from './styles';
 import PropTypes from 'prop-types';
 
 let RegisterForm = (props) => {
   const { handleSubmit } = props;
   return(
-    <form onSubmit={ handleSubmit } style={{background: 'rgba(235, 235, 235, 0.82)', border: '1px solid #ccc', borderRadius: 12, padding: 12}}>
+    <form onSubmit={ handleSubmit } style={styles.form}>
       <div>
         <label htmlFor="username">Username</label>
         <Field name="username" component="input" type="text" />

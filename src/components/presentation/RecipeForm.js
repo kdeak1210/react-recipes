@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
+import styles from './styles';
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
@@ -50,7 +51,7 @@ const renderSteps = ({ fields, meta: { error, submitFailed } }) => (
 const RecipeForm = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit} style={{background: 'rgba(235, 235, 235, 0.82)', border: '1px solid #ccc', borderRadius: 12, padding: 12}}>
+    <form onSubmit={handleSubmit} style={styles.form}>
       <Field
         name="title"
         type="text"

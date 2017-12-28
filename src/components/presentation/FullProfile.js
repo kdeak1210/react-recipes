@@ -9,12 +9,12 @@ const FullProfile = ({username, email, city, website, image, bio, timestamp}) =>
       </header>
 
       <article>
-        <a className="image">
+        {/* <a className="image">
           <img 
             src={ (image) ? image : '/images/NoPhoto.jpg' } 
             alt="User Photo" 
           />
-        </a>
+        </a> */}
         <span>
           <strong>Email: </strong>
           { (email) ? email : 'N/A' }

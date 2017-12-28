@@ -1,9 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import styles from './styles';
 
 let CommentForm = ({ handleSubmit, username }) => {
   return(
-    <form onSubmit = {handleSubmit} style={{background: 'rgba(235, 235, 235, 0.82)', border: '1px solid #ccc', borderRadius: 12, padding: 12}}>
+    <form onSubmit = {handleSubmit} style={styles.form}>
       <div>
         <label htmlFor="body">
           <span>commenting as {username}</span>
