@@ -79,14 +79,14 @@ router.get('/:action', (req, res) => {
 router.post('/:action', (req, res) => {
 
   const { action } = req.params;
-
+  
   if (action == 'register'){
     // Process register
 
     controllers.profile
     .create(req.body, false)
     .then(result => {
-
+      
       // Create a token object on the session
       const token = jwt.sign({id: result.id}, process.env.TOKEN_SECRET, {expiresIn:5000});
       req.session.token = token;
@@ -100,7 +100,7 @@ router.post('/:action', (req, res) => {
     .catch((err) => {
       res.json({
         confirmation: 'fail',
-        message: err
+        message: err.message
       });
     });
   }

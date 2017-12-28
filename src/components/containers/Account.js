@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Greeting, LoginForm, RegisterForm } from '../presentation';
 import { connect } from 'react-redux';
 import actions from '../../actions';
+import swal from 'sweetalert2';
 
 class Account extends Component {
 
@@ -14,12 +15,13 @@ class Account extends Component {
 
   handleRegister(credentials){
     this.props.register(credentials)
-    .catch(err => alert(err));
+    .then(() => swal(`Welcome ${credentials.username}`, 'Thanks for registering', 'success'))
+    .catch(err => swal('Oops...', err.message, 'error'));
   }
 
   handleLogin(credentials){    
     this.props.login(credentials)
-    .catch(err => alert(err));
+    .catch(err => swal('Oops...', err.message, 'error'));
   }
 
   logout(){

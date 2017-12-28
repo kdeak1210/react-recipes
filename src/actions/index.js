@@ -25,11 +25,11 @@ const postRequest = (path, params, actionType) => {
     
     APIManager.post(path, params)
     .then((response) => {
-      if (response.confirmation != 'success')
-        throw new Error(response.message)
+      if (response.confirmation != 'success')        
+        throw new Error(response.message) // (also thrown on duplicate username/email)
       
-      const payload = response.results || response.result || response.user;
-      
+      const payload = response.results || response.result || response.user;      
+
       dispatch({
         type: actionType,
         payload: payload,

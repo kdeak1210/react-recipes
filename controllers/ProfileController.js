@@ -61,8 +61,8 @@ module.exports = {
       if (params['password']){
         params['password'] = bcrypt.hashSync(params.password, 10)
       }
-
-      Profile.create(params, (err, profile) => {
+        
+      Profile.create(params, (err, profile) => {     
         if (err){
           reject(err);
           return;
