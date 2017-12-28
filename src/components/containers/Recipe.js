@@ -40,8 +40,7 @@ class Recipe extends Component {
         .delete(`/api/recipe/${id}`, null)
         .then(response => {
           swal('Deleted!', 'Your recipe has been deleted.', 'success');
-          this.props.history.push('/');
-          console.log(response);
+          this.props.history.push('/'); // Redirects to homepage
         }) 
       } else if (result.dismiss === 'cancel'){
         swal('Cancelled', 'Your recipe remains intact.', 'error');
@@ -53,6 +52,8 @@ class Recipe extends Component {
     const { id } = this.props.match.params;
     const recipe = this.props.recipe.fullDetail[id];
     const { user } = this.props;
+
+    const shouldRenderDelete = (recipe && user && (recipe.author.id == user.id));
        
     return(
       <div>
@@ -60,7 +61,7 @@ class Recipe extends Component {
           ? ''
           : <FullRecipe
               recipe={recipe}
-              showDelete={true}
+              showDelete={shouldRenderDelete}
               handleDelete={this.deleteRecipe.bind(this)}
             />
         }
