@@ -2,12 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FullStep } from '../presentation';
 
-const FullRecipe = ({author, title, image, description, steps, timestamp}) => {   
+const FullRecipe = (props) => {
+  const { recipe, showDelete, handleDelete } = props;
+  const { title, description, image, author, steps, timestamp } = recipe;
   return(
     <section>
       <header>
-        <h2>{title}</h2>       
+        <h2 style={{float: 'left'}}>{title}</h2>
+        { (showDelete) 
+          ? <i 
+              onClick={handleDelete}
+              style={{float: 'right', color: 'maroon', cursor: 'pointer', marginBottom: 10}} 
+              className="fa fa-trash-o fa-3x"></i>
+          : ''
+        }
       </header>
+      <div style={{clear: 'both'}}></div>
       <a className="image featured" style={{marginBottom: 0}}>
         <img 
           src={ (image) ? image : '/images/NoRecipePhoto.jpg'} 
@@ -17,7 +27,7 @@ const FullRecipe = ({author, title, image, description, steps, timestamp}) => {
       </a>
       <header>
         <p><strong>Submitted By: </strong>
-          <Link to={`/profile/${author}`}>{author}</Link>
+          <Link to={`/profile/${author.username}`}>{author.username}</Link>
         </p>
         <p>{timestamp}</p>
       </header>

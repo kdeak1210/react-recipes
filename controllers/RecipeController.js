@@ -6,7 +6,12 @@ module.exports = {
 
   get: (params, isRaw) => {
     return new Promise((resolve, reject) => {
-      Recipe.find(params, (err, recipes) => {
+      
+      let filters = {
+        sort: {timestamp: -1}
+      };
+
+      Recipe.find(params, null, filters, (err, recipes) => {
         if (err){
           reject(err);
           return;
