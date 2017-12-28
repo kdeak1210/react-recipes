@@ -1,11 +1,13 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-let CommentForm = ({ handleSubmit }) => {
+let CommentForm = ({ handleSubmit, username }) => {
   return(
-    <form onSubmit = { handleSubmit } >
+    <form onSubmit = {handleSubmit} >
       <div>
-        <label htmlFor="body">Comment Body</label>
+        <label htmlFor="body">
+          <span>commenting as {username}</span>
+        </label>
         <Field name="body" component="input" type="text" />
       </div>
       <br />

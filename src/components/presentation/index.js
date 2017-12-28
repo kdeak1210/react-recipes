@@ -1,4 +1,5 @@
 import FeedPreview from './FeedPreview';
+import FullComment from './FullComment';
 import FullRecipe from './FullRecipe';
 import Greeting from './Greeting';
 import Navbar from './Navbar';
@@ -13,6 +14,7 @@ import RegisterForm from './RegisterForm';
 export { 
 
   FeedPreview,
+  FullComment,
   FullRecipe,
   Greeting,  
   Navbar,

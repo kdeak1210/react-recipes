@@ -1,7 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { accountReducer, profileReducer, recipeReducer } from '../reducers';
 import { reducer as formReducer } from 'redux-form'
+import { 
+  accountReducer, 
+  commentReducer, 
+  profileReducer, 
+  recipeReducer 
+} from '../reducers';
 
 var store;
 
@@ -11,9 +16,10 @@ export default {
 
     const reducers = combineReducers({
       account: accountReducer,
+      comment: commentReducer,
       profile: profileReducer,
       recipe: recipeReducer,
-      form: formReducer
+      form: formReducer         // redux-form
     });
 
     store = createStore(

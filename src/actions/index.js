@@ -65,6 +65,18 @@ export default {
       return dispatch(postRequest('/api/recipe', params, constants.RECIPE_CREATED));
     }
   },
+
+  createComment: (params) => {
+    return (dispatch) => {
+      return dispatch(postRequest('/api/comment', params, constants.COMMENT_CREATED));
+    }
+  },
+
+  fetchComments: (params) => {
+    return (dispatch) => {
+      return dispatch(getRequest('/api/comment', params, constants.COMMENTS_RECEIVED));
+    }
+  },
   
   fetchRecipes: (params) => {
     return (dispatch) => {
