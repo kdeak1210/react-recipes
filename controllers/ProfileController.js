@@ -73,6 +73,11 @@ module.exports = {
           return;
         }
 
+        if (profile == null) {
+          resolve(profile);
+          return;
+        }
+
         if (isRaw){
           resolve(profile);
           return;
@@ -89,6 +94,11 @@ module.exports = {
       Profile.findByIdAndUpdate(id, params, {new: true}, (err, profile) => {
         if (err){
           reject(err);
+          return;
+        }
+
+        if (profile == null) {
+          resolve(profile);
           return;
         }
 

@@ -62,6 +62,11 @@ module.exports = {
           return;
         }
 
+        if (comment == null) {
+          resolve(comment);
+          return;
+        }
+
         if (isRaw){
           resolve(comment);
         } else {

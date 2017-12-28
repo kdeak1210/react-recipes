@@ -70,6 +70,11 @@ module.exports = {
           return;
         }
 
+        if (recipe == null) {
+          resolve(recipe);
+          return;
+        }
+
         if (isRaw){
           resolve(recipe);
           return;
@@ -89,6 +94,11 @@ module.exports = {
           return;
         }
 
+        if (recipe == null) {
+          resolve(recipe);
+          return;
+        }
+
         if (isRaw){
           resolve(recipe);
           return;
@@ -105,6 +115,11 @@ module.exports = {
       Recipe.findByIdAndRemove(id, (err, recipe) => {
         if (err){
           reject(err);
+          return;
+        }
+
+        if (recipe == null) {
+          resolve(recipe);
           return;
         }
 
