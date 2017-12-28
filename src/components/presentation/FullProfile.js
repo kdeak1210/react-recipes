@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileDetail = ({username, email, city, website, image, bio, timestamp}) => {
+const FullProfile = ({username, email, city, website, image, bio, timestamp}) => {
   return(
     <section className="box spotlight">
       <header>
@@ -36,4 +36,4 @@ const ProfileDetail = ({username, email, city, website, image, bio, timestamp}) 
   )
 }
 
-export default ProfileDetail;
+export default FullProfile;

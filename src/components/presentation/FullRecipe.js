@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FullStep } from '../presentation';
 
 const FullRecipe = ({author, title, image, description, steps, timestamp}) => {   
   return(
@@ -7,7 +8,7 @@ const FullRecipe = ({author, title, image, description, steps, timestamp}) => {
       <header>
         <h2>{title}</h2>       
       </header>
-      <a className="image featured">
+      <a className="image featured" style={{marginBottom: 0}}>
         <img 
           src={ (image) ? image : '/images/NoRecipePhoto.jpg'} 
           alt={`${title} recipe image`} 
@@ -22,18 +23,15 @@ const FullRecipe = ({author, title, image, description, steps, timestamp}) => {
       </header>
 
       <section className="box article-list">
-        <h2>Recipe Steps</h2>
-        { steps.map((step, index) => {
+        <h2 style={{marginBottom: 12}}>Recipe Steps</h2>
+        { steps.map((step, i) => {
           return(
-            <article key={step._id} className="box excerpt">
-              <div>
-                <header>
-                  <h3><a href="#">{`Step ${index + 1}`}</a></h3>
-                  <span className="date">{step.duration}</span>
-                </header>
-                <p>{step.directions}</p>
-              </div>
-            </article>
+            <FullStep
+              key={step._id}
+              index={i}
+              duration={step.duration}
+              directions={step.directions}
+            />
           )
         })}
       </section>

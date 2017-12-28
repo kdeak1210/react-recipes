@@ -1,9 +1,10 @@
 import FeedPreview from './FeedPreview';
 import FullComment from './FullComment';
+import FullProfile from './FullProfile';
 import FullRecipe from './FullRecipe';
+import FullStep from './FullStep';
 import Greeting from './Greeting';
 import Navbar from './Navbar';
-import ProfileDetail from './ProfileDetail';
 
 import CommentForm from './CommentForm';
 import LoginForm from './LoginForm';
@@ -15,10 +16,11 @@ export {
 
   FeedPreview,
   FullComment,
+  FullProfile,
   FullRecipe,
+  FullStep,
   Greeting,  
   Navbar,
-  ProfileDetail,
 
   CommentForm,
   LoginForm,

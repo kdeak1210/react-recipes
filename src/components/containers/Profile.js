@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ProfileDetail } from '../presentation';
+import { FullProfile } from '../presentation';
 import { connect } from 'react-redux';
 import actions from '../../actions';
 
@@ -25,7 +25,7 @@ class Profile extends Component{
     
     return(
       <div>
-        <ProfileDetail 
+        <FullProfile 
           username={username}
           email={email}
           city={city}
