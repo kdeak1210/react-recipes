@@ -32,8 +32,8 @@ gulp.task('copy', () => {
 gulp.task('js', () => {
   return gulp.src(
     [
+      './public/assets/js/jquery.min.js',      
       './public/assets/js/jquery.dropotron.min.js',
-      './public/assets/js/jquery.min.js',
       './public/assets/js/skel.min.js',
       './public/assets/js/skel-viewport.min.js',
       './public/assets/js/util.js',

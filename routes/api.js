@@ -16,7 +16,7 @@ router.get('/:resource', (req, res) => {
 
     return;
   }
-
+  
   controller.get(req.query, false)
   .then(results => {
     res.json({

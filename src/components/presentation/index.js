@@ -1,22 +1,26 @@
-import Greeting from './Greeting';
-import LoginForm from './LoginForm';
 import FeedPreview from './FeedPreview';
 import FullRecipe from './FullRecipe';
+import Greeting from './Greeting';
 import Navbar from './Navbar';
-import ProfileForm from './ProfileForm';
 import ProfileDetail from './ProfileDetail';
+
+import CommentForm from './CommentForm';
+import LoginForm from './LoginForm';
+import ProfileForm from './ProfileForm';
 import RecipeForm from './RecipeForm';
 import RegisterForm from './RegisterForm';
 
 export { 
 
-  Greeting,
-  LoginForm,
   FeedPreview,
   FullRecipe,
+  Greeting,  
   Navbar,
-  ProfileForm,
   ProfileDetail,
+
+  CommentForm,
+  LoginForm,
+  ProfileForm,
   RecipeForm,
   RegisterForm
 

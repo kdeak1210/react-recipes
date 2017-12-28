@@ -6,7 +6,7 @@ module.exports = {
 
   get: (params, isRaw) => {
     return new Promise((resolve, reject) => {
-      Comment.get(params, (err, comments) => {
+      Comment.find(params, (err, comments) => {
         if (err){
           reject(err);
           return;

@@ -17,7 +17,7 @@ class Home extends Component {
 									<div className="7u 12u(mobile)">
                       <header className="first major">
 												<h2 className="icon fa-file-text-o">Recipe Feed</h2>                        
-                        <p>Recently submitted recipes</p>
+                        <p style={{margin: 0}}>Recently submitted recipes</p>
                       </header>
 
 											<section className="box article-list">

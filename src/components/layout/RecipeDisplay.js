@@ -1,5 +1,5 @@
 import React from 'react';
-import { Recipe } from '../containers';
+import { CommentFeed, Recipe } from '../containers';
 import { Navbar } from '../presentation';
 
 const RecipeDisplay = (props) => {
@@ -22,7 +22,7 @@ const RecipeDisplay = (props) => {
                 <div className="6u 12u(mobile)" style={{paddingTop: 0}}>
                   <section className="box article-list">
                     
-                    TODO: RECIPE COMMENTS FEED
+                    <CommentFeed {...props} />
 
                   </section>
                 </div>                  
