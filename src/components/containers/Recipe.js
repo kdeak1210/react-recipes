@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FullRecipe } from '../presentation';
 import { connect } from 'react-redux';
 import actions from '../../actions';
+import { withRouter } from 'react-router-dom';
 import { APIManager } from '../../utils';
 import swal from 'sweetalert2';
 
@@ -39,6 +40,7 @@ class Recipe extends Component {
         .delete(`/api/recipe/${id}`, null)
         .then(response => {
           swal('Deleted!', 'Your recipe has been deleted.', 'success');
+          this.props.history.push('/');
           console.log(response);
         }) 
       } else if (result.dismiss === 'cancel'){
@@ -80,4 +82,4 @@ const dispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(stateToProps, dispatchToProps)(Recipe)
+export default withRouter(connect(stateToProps, dispatchToProps)(Recipe))
