@@ -92,6 +92,7 @@ router.post('/:resource', (req, res) => {
   });
 });
 
+// PUT to update a resource found by its id
 router.put('/:resource/:id', (req, res) => {
   
   const { resource, id } = req.params;
@@ -121,8 +122,35 @@ router.put('/:resource/:id', (req, res) => {
   });
 });
 
+// DELETE to destory a resource found with its id
 router.delete('/:resource/:id', (req, res) => {
-  res.send('not implemented');
+  
+  const { resource, id } = req.params;
+  const controller = controllers[resource];
+
+  if (controller == null) {
+    res.json({
+      confirmation: 'fail',
+      message: `Resource '${resource}' is not found`
+    });
+
+    return;
+  }
+
+  controller.destroy(id, false)
+  .then(result => {
+    res.json({
+      confirmation: 'success',
+      result: result
+    })
+  })
+  .catch(err => {
+    res.json({
+      confirmation: 'fail',
+      message: err
+    })
+  })
+
 });
 
 module.exports = router;

@@ -91,7 +91,22 @@ module.exports = {
   },
 
   destroy: (id, isRaw) => {
-    // DESTROY (DELETE)
+    return new Promise((resolve, reject) => {
+      Recipe.findByIdAndRemove(id, (err, recipe) => {
+        if (err){
+          reject(err);
+          return;
+        }
+
+        if (isRaw){
+          resolve(Recipe);
+          return;
+        } else {
+          resolve(recipe.summary());
+          return;
+        }
+      })
+    })
   }
 
 };
