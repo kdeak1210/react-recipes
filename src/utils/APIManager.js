@@ -63,6 +63,24 @@ export default {
         resolve(response.body);
       })
     })
+  },
+
+  delete: (url, params) => {
+    return new Promise((resolve, reject) => {
+
+      superagent
+      .del(url)   // old IE compatibility (delete reserved word)
+      .send(params)
+      .set('accept', 'json')
+      .end((err, response) => {
+        if (err){
+          reject(err);
+          return;
+        }
+
+        resolve(response.body);
+      })
+    })
   }
 
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FullRecipe } from '../presentation';
 import { connect } from 'react-redux';
 import actions from '../../actions';
+import { APIManager } from '../../utils';
 import swal from 'sweetalert2';
 
 class Recipe extends Component {
@@ -28,10 +29,18 @@ class Recipe extends Component {
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
       cancelButtonText: 'No, cancel!',
+      reverseButtons: true
     })
     .then(result => {
-      if (result.value) {
-        swal('Deleted!', 'Your recipe has been deleted.', 'success');
+      if (result.value) { 
+        // The user opted to delete their recipe
+        const { id } = this.props.match.params;
+        APIManager
+        .delete(`/api/recipe/${id}`, null)
+        .then(response => {
+          swal('Deleted!', 'Your recipe has been deleted.', 'success');
+          console.log(response);
+        }) 
       } else if (result.dismiss === 'cancel'){
         swal('Cancelled', 'Your recipe remains intact.', 'error');
       }
@@ -45,10 +54,6 @@ class Recipe extends Component {
        
     return(
       <div>
-        { (user && recipe && (user.id == recipe.author.id))
-          ? <i style={{color:'maroon'}} className="fa fa-trash-o fa-3x"></i>
-          : ''
-        }
         { (recipe == null)
           ? ''
           : <FullRecipe

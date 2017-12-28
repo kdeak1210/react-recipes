@@ -13,6 +13,11 @@ module.exports = {
           return;
         }
 
+        if (profiles == null){
+          resolve(null);
+          return;
+        }
+
         if (isRaw){
           resolve(profiles);
           return;

@@ -12,6 +12,11 @@ module.exports = {
           return;
         }
 
+        if (comments == null){
+          resolve(null);
+          return;
+        }
+
         if (isRaw){
           resolve(comments);
           return;
@@ -32,6 +37,11 @@ module.exports = {
       Comment.findById(id, (err, comment) => {
         if (err){
           reject(err);
+          return;
+        }
+
+        if (comment == null){
+          resolve(null);
           return;
         }
 

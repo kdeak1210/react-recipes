@@ -17,6 +17,11 @@ module.exports = {
           return;
         }
 
+        if (recipes == null){
+          resolve(null);
+          return;
+        }
+
         if (isRaw){
           resolve(recipes);
           return;
@@ -38,6 +43,11 @@ module.exports = {
       Recipe.findById(id, (err, recipe) => {
         if (err){
           reject(err)
+          return;
+        }
+
+        if (recipe == null){
+          resolve(null);
           return;
         }
 
