@@ -36,8 +36,7 @@ class Recipe extends Component {
       if (result.value) { 
         // The user opted to delete their recipe
         const { id } = this.props.match.params;
-        APIManager
-        .delete(`/api/recipe/${id}`, null)
+        this.props.deleteRecipe(id)
         .then(response => {
           swal('Deleted!', 'Your recipe has been deleted.', 'success');
           this.props.history.push('/'); // Redirects to homepage
@@ -54,7 +53,6 @@ class Recipe extends Component {
     const { user } = this.props;
 
     const shouldRenderDelete = (recipe && user && (recipe.author.id == user.id));
-       
     return(
       <div>
         { (recipe == null)
@@ -79,7 +77,8 @@ const stateToProps = (state) => {
 
 const dispatchToProps = (dispatch) => {
   return {
-    fetchRecipeById: (id) => dispatch(actions.fetchRecipeById(id))
+    fetchRecipeById: (id) => dispatch(actions.fetchRecipeById(id)),
+    deleteRecipe: (id) => dispatch(actions.deleteRecipe(id))
   }
 }
 

@@ -49,6 +49,44 @@ export default (state = initialState, action) => {
       return updated;
     }
 
+    case constants.RECIPE_DELETED: {
+      console.log('RECIPE_DELETED: ' + JSON.stringify(action.payload));
+      /**
+       * TODO: Implement this Reducer!!! Below: action.payload
+       * 
+       RECIPE_DELETED: {
+        "author": {
+            "username":"chefjohn",
+            "id":"5a41654c5f5f212faef37fbe"
+        },
+        "title":"to be removed",
+        "image":"",
+        "description":"fdsfsdfsdfsdf",
+        "steps":
+          [
+            {
+              "_id":"5a44b6e768548a191944ac9c",
+              "timestamp":"2017-12-28T09:16:34.536Z",
+              "image":"",
+              "duration":"gshhh",
+              "directions":"dfgsd"
+            },
+            {
+              "_id":"5a44b6e768548a191944ac9b",
+              "timestamp":"2017-12-28T09:16:34.536Z",
+              "image":"",
+              "duration":"ssss",
+              "directions":"ds"
+            }
+          ],
+          "timestamp":"2017-12-28T09:16:34.537Z",
+          "id":"5a44b6e768548a191944ac9a"
+        } 
+       * */
+      
+      return updated;
+    }
+
     default:
       return updated;
   }

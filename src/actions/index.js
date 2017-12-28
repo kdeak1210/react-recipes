@@ -3,7 +3,6 @@ import { APIManager } from '../utils';
 
 const getRequest = (path, params, actionType) => {
   return (dispatch) => // No curly brace wrap here, So can return the PROMISE
-
     APIManager.get(path, params)
     .then((response) => {
       if (response.confirmation != 'success')
@@ -13,8 +12,8 @@ const getRequest = (path, params, actionType) => {
       
       dispatch({
         type: actionType,
-        payload: payload,
-        params: params        
+        payload,
+        params       
       })
     })
     .catch(err => { throw err })  // propagate error down the chain
@@ -22,7 +21,6 @@ const getRequest = (path, params, actionType) => {
 
 const postRequest = (path, params, actionType) => {
   return (dispatch) => 
-    
     APIManager.post(path, params)
     .then((response) => {
       if (response.confirmation != 'success')        
@@ -32,16 +30,15 @@ const postRequest = (path, params, actionType) => {
 
       dispatch({
         type: actionType,
-        payload: payload,
-        params: params
+        payload,
+        params
       })
     })
-    .catch(err => { throw err })  // propagate error down the chain
+    .catch(err => { throw err }) // propagate error down the chain
 }
 
 const putRequest = (path, params, actionType) => {
   return (dispatch) => 
-
     APIManager.put(path, params)
     .then(response => {
       if (response.confirmation != 'success')
@@ -51,11 +48,29 @@ const putRequest = (path, params, actionType) => {
 
       dispatch({
         type: actionType,
-        payload: payload,
-        params: params
+        payload,
+        params
       })
     })
-    .catch(err => { throw err })  // propagate error down the chain 
+    .catch(err => { throw err }) // propagate error down the chain 
+}
+
+const deleteRequest = (path, params, actionType) => {
+  return (dispatch) => 
+    APIManager.delete(path, params)
+    .then(response => {
+      if (response.confirmation != 'success')
+        throw new Error(response.message);
+
+      const payload = response.results || response.result || response.user;
+
+      dispatch({
+        type: actionType,
+        payload,
+        params
+      })
+    })
+    .catch(err => { throw err }) // propagate error down the chain
 }
 
 export default {
@@ -102,6 +117,18 @@ export default {
     }
   },
 
+  updateProfile: (id, updated) => {
+    return (dispatch) => {
+      return dispatch(putRequest(`/api/profile/${id}`, updated, constants.PROFILE_UPDATED));
+    }
+  },
+
+  deleteRecipe: (id) => {
+    return (dispatch) => {
+      return dispatch(deleteRequest(`/api/recipe/${id}`, null, constants.RECIPE_DELETED));
+    }
+  },
+
   checkCurrentUser: () => {
     return (dispatch) => {
       return dispatch(getRequest('/account/currentuser', null, constants.USER_LOGGED_IN));
@@ -125,11 +152,5 @@ export default {
       return dispatch(getRequest('/account/logout', null, constants.USER_LOGGED_OUT));
     }
   },
-
-  updateProfile: (id, updated) => {
-    return (dispatch) => {
-      return dispatch(putRequest(`/api/profile/${id}`, updated, constants.PROFILE_UPDATED));
-    }
-  }
   
 }
