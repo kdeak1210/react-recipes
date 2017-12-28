@@ -20,9 +20,9 @@ export default (state = initialState, action) => {
     //   return updated;
 
     case constants.PROFILE_RECEIVED:
-      console.log('PROFILE_RECEIVED: ' + JSON.stringify(action.payload));
+      //console.log('PROFILE_RECEIVED: ' + JSON.stringify(action.payload));
       updated[action.params.username] = action.payload[0];
-      console.log(updated);
+      //console.log(updated);
       
       return updated;
 

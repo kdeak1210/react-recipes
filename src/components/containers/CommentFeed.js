@@ -55,6 +55,7 @@ class CommentFeed extends Component {
               </div>
             )}
         )}
+        <br />
         { (user) 
           ? <CommentForm 
               onSubmit={this.submitComment.bind(this)}

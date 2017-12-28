@@ -8,7 +8,11 @@ const FullRecipe = ({author, title, image, description, steps, timestamp}) => {
         <h2>{title}</h2>       
       </header>
       <a className="image featured">
-        <img src={image} alt={`${title} recipe image`} style={{maxHeight: 300, borderRadius: 15}}/>
+        <img 
+          src={ (image) ? image : '/images/NoRecipePhoto.jpg'} 
+          alt={`${title} recipe image`} 
+          style={{maxHeight: 300, borderRadius: 15}}
+        />
       </a>
       <header>
         <p><strong>Submitted By: </strong>

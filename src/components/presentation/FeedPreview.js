@@ -5,7 +5,10 @@ const Preview = ({id, author, title, image, description, timestamp}) => {
   return(
     <div>
       <Link to={`/recipe/${id}`} className="image left">
-        <img src={image} alt={title} style={{maxHeight: 180, maxWidth: 220}} />
+        <img 
+          src={ (image) ? image : '/images/NoRecipePhoto.jpg'} 
+          alt={title} 
+          style={{maxHeight: 180, maxWidth: 220}} />
       </Link>
       <div>
         <header>
