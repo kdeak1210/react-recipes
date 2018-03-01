@@ -51,14 +51,14 @@ export default (state = initialState, action) => {
 
     case constants.RECIPE_DELETED: {
       // console.log('RECIPE_DELETED: ' + JSON.stringify(action.payload));      
-      const { recipeId } = action.payload;
+      const { id } = action.payload;
 
       // Remove from fullDetail hashmap
-      delete updated.fullDetail[recipeId];
+      delete updated.fullDetail[id];
 
       return {
         ...updated,
-        all: updated.all.filter(x => x.id !== recipeId),
+        all: updated.all.filter(x => x.id != id),
       }
     }
 

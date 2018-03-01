@@ -3,6 +3,7 @@ import { RecipeForm } from '../presentation';
 import { connect } from 'react-redux';
 import actions from '../../actions';
 import swal from 'sweetalert2';
+import { withRouter } from 'react-router-dom';
 
 class CreateRecipe extends Component {
 
@@ -16,7 +17,8 @@ class CreateRecipe extends Component {
 
     this.props.createRecipe(recipe)
     .then(response => {
-      swal('Thank you', 'Your recipe has submitted successfully', 'success')
+      swal('Thank you', 'Your recipe has submitted successfully', 'success');
+      this.props.history.push('/');
     })
     .catch(err => alert(err));
   }
@@ -43,4 +45,4 @@ const dispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(stateToProps, dispatchToProps)(CreateRecipe)
+export default withRouter(connect(stateToProps, dispatchToProps)(CreateRecipe));

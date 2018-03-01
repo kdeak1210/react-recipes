@@ -33,6 +33,9 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
+  },
+  watchOptions: {
+    poll: true
   }
 
 }
