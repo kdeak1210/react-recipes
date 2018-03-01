@@ -26,6 +26,14 @@ export default (state = initialState, action) => {
       
       return updated;
 
+    case constants.PROFILE_UPDATED:
+      //console.log('PROFILE_UPDATED: ' + JSON.stringify(action.payload));
+      const { username } = action.payload // profiles stored in map by username as key
+      return {
+        ...updated,
+        [username]: action.payload
+      }
+
     default:
       return updated;
   }

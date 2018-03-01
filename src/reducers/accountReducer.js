@@ -16,6 +16,7 @@ export default (state = initialState, action) => {
 
     case constants.PROFILE_UPDATED:
       console.log('PROFILE_UPDATED: ' + JSON.stringify(action.payload));
+      updated['user'] = action.payload;
       return updated;
 
     case constants.USER_LOGGED_IN:
