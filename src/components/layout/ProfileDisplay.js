@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { Profile, Feed } from '../containers';
-import { Navbar } from '../presentation';
-
 
 class ProfileDisplay extends Component {
-
   render(){
     const { username } = this.props.match.params;
     return(
       <div id="page-wrapper">
-
-        <Navbar />    
-
         <div id="main-wrapper">
           <div className="wrapper style3">
             <div className="inner">

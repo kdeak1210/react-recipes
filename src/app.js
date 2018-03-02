@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux';
+import { Navbar } from './components/presentation';
 import store from './stores';
 
 import { 
@@ -16,12 +17,15 @@ class App extends Component {
     return(
       <Provider store={ store.configureStore() }>
         <Router>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/currentuser' component={UserDashboard} />
-            <Route path='/profile/:username' component={ProfileDisplay} />
-            <Route path='/recipe/:id' component={RecipeDisplay} />
-          </Switch>
+          <React.Fragment>
+            <Navbar />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/currentuser' component={UserDashboard} />
+              <Route path='/profile/:username' component={ProfileDisplay} />
+              <Route path='/recipe/:id' component={RecipeDisplay} />
+            </Switch>
+            </React.Fragment>
         </Router>
       </Provider>
     )

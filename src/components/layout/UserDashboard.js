@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import { UpdateProfile, CreateRecipe } from '../containers';
-import { Navbar } from '../presentation';
 
 class CurrentUser extends Component {
-
   render(){
     return(
       <div id="page-wrapper">
-
-        <Navbar />    
-
         <div id="main-wrapper">
           <div className="wrapper style3">
             <div className="inner">

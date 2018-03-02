@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { Account, Feed } from '../containers';
-import { Navbar } from '../presentation';
 
 class Home extends Component {
   render(){
     return(
       <div id="page-wrapper">
-        
-        <Navbar />
-
         <div id="main-wrapper">
 					<div className="wrapper style3" style={{paddingTop: 50}}>
 						<div className="inner">

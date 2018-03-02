@@ -1,13 +1,9 @@
 import React from 'react';
 import { CommentFeed, Recipe } from '../containers';
-import { Navbar } from '../presentation';
 
 const RecipeDisplay = (props) => {
   return(
     <div id="page-wrapper">
-
-      <Navbar />    
-
       <div id="main-wrapper">
         <div className="wrapper style3">
           <div className="inner">
